@@ -57,7 +57,7 @@ export default function Home() {
       <section className="search_form_bg">
         <div className="mx-auto max-w-7xl px-8">
           <Form action=''>
-            <div className="flex lg:flex-row flex-col gap-y-5 gap-x-[38px]">
+            <div className="flex lg:flex-row flex-wrap flex-col gap-y-5 gap-x-[38px]">
               <div className="form-group lg:w-max w-full">
                 <label htmlFor="fName" className="form-label">First Name</label>
                 <input type="text" id="fName" className="form-control lg:w-max w-full" placeholder="First Name" />
@@ -70,7 +70,7 @@ export default function Home() {
                 <label htmlFor="lName" className="form-label">Email</label>
                 <input type="text" id="lName" className="form-control lg:w-max w-full" placeholder="Email" />
               </div>
-              <div className="form-group w-full">
+              <div className="form-group lg:w-full max-w-52">
                 <label htmlFor="insuranceType" className="form-label">Insurance Type</label>
                 <select id="insuranceType" className="form-control form-select min-w-40 w-full">
                   <option value="1">value</option>
@@ -96,7 +96,7 @@ export default function Home() {
                 <p className="text_primary text-[50px] font-bold">1</p>
               </div>
               <div className="content">
-                <h3 className="font-black text-2xl text-center mb-[19px]">Apply</h3>
+                <h3 className="font-black text-[#000000DE] text-2xl text-center mb-[19px]">Apply</h3>
                 <p className="text-center">Choose your coverage and apply. Fill out the application with more detailed information about yourself, your health, and your lifestyle.</p>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function Home() {
                 <p className="text_primary text-[50px] font-bold">2</p>
               </div>
               <div className="content">
-                <h3 className="font-black text-2xl text-center mb-[19px]">Get a Quote</h3>
+                <h3 className="font-black text-[#000000DE] text-2xl text-center mb-[19px]">Get a Quote</h3>
                 <p className="text-center">Provide some basic information to get an estimated premium amount and coverage options.</p>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function Home() {
                 <p className="text_primary text-[50px] font-bold">3</p>
               </div>
               <div className="content">
-                <h3 className="font-black text-2xl text-center mb-[19px]">Get Covered</h3>
+                <h3 className="font-black text-[#000000DE] text-2xl text-center mb-[19px]">Get Covered</h3>
                 <p className="text-center">Receive confirmation and a policy document after we process your application and payment.</p>
               </div>
             </div>

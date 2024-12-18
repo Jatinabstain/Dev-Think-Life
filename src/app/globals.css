@@ -48,7 +48,7 @@ header{
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  color: var(--dark);
+  color: #000000DE;
 }
 .nav_link.active, .mobile_link.active{
   color: var(--primary);
@@ -76,7 +76,7 @@ header{
   padding: 53px 0 80px;
 }
 .banner_content h1{
-  color: var(--headingColor);
+  color: #000000DE;
   font-size: 50px;
   font-weight: 700;
   line-height: 65px;
@@ -88,7 +88,7 @@ header{
   font-size: 20px;
   font-weight: 400;
   line-height: 28px;
-  color: var(--testColor);
+  color: #00000099;
 }
 .banner_img img{
    width: auto;
@@ -149,7 +149,7 @@ header{
   font-weight: 700;
   margin-bottom: 0;
   text-align: center;
-  color: var(--black);
+  color: #000000DE;
 }
 .heading p{
   font-size: 1rem;
@@ -229,7 +229,7 @@ header{
 .about_card p{
   font-size: 20px;
   margin-bottom: 0;
-  color: var(--dark);
+  color: #000000DE;
 }
 .circle_icon{
   position: absolute;
@@ -266,7 +266,7 @@ header{
 .review_content p{
   font-size: 14px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
+  color: #00000099;
   margin: 0;
   line-height: 20px;
 }
@@ -310,19 +310,20 @@ header{
   font-weight: 700;
   line-height: 28px;
   margin: 0 0 4px;
+  color: #000000DE;
 }
 .article_content p{
   font-size: 14px;
   font-weight: 400;
   line-height: 16.41px;
   margin-bottom: 10px;
-  color: #4B5565;
+  color: #00000099;
 }
 .card_time{
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: #121926 !important;
+  color: #000000DE !important;
   margin: 0 !important;
 }
 .btn_outline_small{
@@ -346,10 +347,10 @@ header{
   font-weight: 700;
   margin: 0;
   line-height: 65px;
-  color: #2B2B2B;
+  color: #000000DE;
 }
 .page_heading h3 span{
-  color: var(--primary); 
+  color: #8B66EF; 
 }
 .products p{
   text-align: left;
@@ -584,4 +585,235 @@ header{
 .pagination li:not(:first-child, :last-child) .page_num:hover{
   background-color: var(--primary);
   color: var(--background);
+}
+.error_content h3{
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 65px;
+  color: #000000DE;
+  text-align: center;
+}
+.page_img img{
+  height: 400px;
+  width: 100%;
+  object-fit: contain;
+}
+.card_heading{
+  margin-bottom: 32px;
+}
+.mb-0{
+  margin-bottom: 0 !important;
+}
+.card_heading h3{
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 42px;
+  color: var(--headingColor); 
+}
+.value_card{
+  background-color: #F8F6FE;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 24px 38px 0px #090F2512;
+}
+.value_card h3{
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 23px;
+  margin-bottom: 32px;
+  color: #000000DE;
+  text-align: center;
+}
+.value_card p{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: #00000099;
+}
+.card_heading p{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #00000099;
+}
+.value_card .count{
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+}
+.value_card .count p{
+  color: var(--background);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 28.13px;
+  margin: 0;
+}
+.privacy_content p{
+  font-size: 20px;
+  line-height: 28px;
+}
+.list{
+  padding-left: 1rem;
+  list-style-type: disc;
+}
+.list li{
+  font-size: 20px;
+  line-height: 28px;
+}
+.policy_number h3{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+.policy_number p{
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 28.13px;
+  margin: 0;
+}
+.how_card{
+  background-color: #F8F6FE;
+  padding: 1rem 1rem 56px;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0px 24px 38px 0px #090F2512;
+}
+.how_content h3{
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 28px;
+  margin-bottom: 32px;
+}
+.how_content p{
+  text-align: center;
+  color: #00000099;
+  line-height: 24px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.how_card .count p{
+  font-size: 34px;
+  line-height: 42px;
+  font-weight: 700;
+  color: #BEA8F5;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.how_grid:nth-child(3){
+  grid-column: 2 / span 2;
+}
+.list_number{
+  list-style-type: decimal;
+  padding-left: 2rem;
+}
+.modal_content{
+  background-color: var(--background);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 627px;
+}
+.modal_content h2{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #000000DE;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.modal_content p{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 18.75px;
+  color: #00000099;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.review_head h3{
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 18.75px;
+  margin-bottom: 5px;
+  color: #000000DE;
+}
+.accordion_content{
+  color: #4B5565; 
+}
+.slider_card{
+  background-color: #E9E5FB;
+  padding: 32px;
+  border-radius: 4px;
+  position: relative;
+}
+.slider_content h3{
+  color: #000000DE;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 8px;
+}
+.slider_content p{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 18.75px;
+  color: #000000DE;
+  margin-bottom: 1rem;
+}
+.slider_content small{
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #00000099;
+  margin-bottom: 1rem;
+}
+.slider_image img{
+  border-radius: 12px;
+}
+.small_outline_primary{
+  border: 1px solid var(--primary);
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  color: var(--primary);
+  border-radius: 100px;
+}
+.swiper-pagination-bullet{
+  background-color: #697586 !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+  background-color: var(--primary) !important;
+}
+.swiper-pagination {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  bottom: -24px !important;
+}
+.artical_inner h3{
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 28.13px;
+  color: #000000DE;
+}
+.artical_inner p{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #000000DE;
 }

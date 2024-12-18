@@ -28,22 +28,22 @@ export default function Footer() {
                                     <h3 className='text-base font-normal mb-11'>Navigation</h3>
                                     <ul>
                                         <li>
-                                            <Link href="#">Home</Link>
+                                            <Link href="/">Home</Link>
                                         </li>
                                         <li>
-                                            <Link href="#">Products</Link>
+                                            <Link href="products">Products</Link>
                                         </li>
                                         <li>
-                                            <Link href="#">About Us</Link>
+                                            <Link href="aboutUs">About Us</Link>
                                         </li>
                                         <li>
                                             <Link href="#">How It Works</Link>
                                         </li>
                                         <li>
-                                            <Link href="#">Privacy Policy</Link>
+                                            <Link href="privacyPolicy">Privacy Policy</Link>
                                         </li>
                                         <li>
-                                            <Link href="#">Terms and Conditions</Link>
+                                            <Link href="termsConditions">Terms and Conditions</Link>
                                         </li>
                                     </ul>
                                 </div>

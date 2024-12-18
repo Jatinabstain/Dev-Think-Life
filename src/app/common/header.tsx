@@ -22,8 +22,8 @@ const menus: MenuItem[] = [
     { name: 'Home', href: '/' },
     { name: 'Products', href: 'products' },
     { name: 'Blog', href: 'blog' },
-    { name: 'About Us', href: '#' },
-    { name: 'How It Works', href: '#' }
+    { name: 'About Us', href: 'aboutUs' },
+    { name: 'How It Works', href: 'howItWorks' }
 ]
 
 export default function Header() {

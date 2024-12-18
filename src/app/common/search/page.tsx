@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Search from '../../../../public/assets/screen.svg'
+import Search from '../../../../public/assets/search.svg'
 
 export default function search() {
     return (

@@ -19,7 +19,7 @@ export default function ArticlesHome() {
                 </div>
                 <ArticleCard articles={articles} />
 
-                <Link href="#" className="block w-fit mx-auto border mt-8 border_primary_light text_primary py-2.5 px-4 rounded font-medium">Learn More</Link>
+                <Link href="blog" className="block w-fit mx-auto border mt-8 border_primary_light text_primary py-2.5 px-4 rounded font-medium">All Articles</Link>
             </div>
         </section>
     );
