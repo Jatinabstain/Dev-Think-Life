@@ -29,7 +29,7 @@ export default function Reviews() {
                 </div>
                 {/* <div className="flex md:flex-row flex-col lg:gap-y-0 gap-y-4 gap-x-[38px]"> */}
                 {/* <div ref={masonryContainer} className="grid lg:grid-cols-4 items-start md:grid-cols-2 lg:gap-y-[38px] gap-y-4 gap-x-[38px] justify-center items-center"> */}
-                <div ref={masonryContainer} className="grid items-start gap-4 sm:grid-cols-4 md:gap-6">
+                <div ref={masonryContainer} className="grid items-start gap-4 lg:grid-cols-4 md:grid-cols-3 md:gap-6">
                     {reviewContent.map((item) => (
                         <div key={item.name} className="review_card">
                             <div className="flex gap-5">

@@ -108,11 +108,21 @@ header{
   color: #697586;
   position: absolute;
   width: fit-content;
-  background-color: #fff;
   height: fit-content;
   top: -5px;
-  left: 16px;
+  /* left: 35px; */
   line-height: 1;
+  z-index: 999;
+}
+.form-label::before{
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 110%;
+  background: #fff;
+  top: 5px;
+  left: -2px;
+  z-index: -1;
 }
 .form-control{
   min-height: 52px;
@@ -120,7 +130,8 @@ header{
   font-size: 14px;
   border-radius: 12px;
   outline: none;
-  /* width: 100%; */
+  width: 100%;
+  display: block;
   border: 1px solid #E3E8EF;
 }
 .btn_outline_big{
@@ -134,7 +145,7 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 13px 42px;
+  padding: 13px;
   border-radius: 4px;
 }
 .form-select{
@@ -143,6 +154,7 @@ header{
   background-repeat: no-repeat;
   background-position: center right 24px;
   background-size: 10px;
+  background-color: var(--background);
 }
 .heading h3{
   font-size: 34px;
@@ -209,6 +221,7 @@ header{
 }
 .subscribe_newsletter input{
   min-height: auto;
+  width: auto;
   padding: 12.5px 1rem;
 }
 .about_card{
@@ -685,6 +698,7 @@ header{
   padding: 1rem 1rem 56px;
   position: relative;
   border-radius: 12px;
+  height: 100%;
   box-shadow: 0px 24px 38px 0px #090F2512;
 }
 .how_content h3{
@@ -755,6 +769,10 @@ header{
   padding: 32px;
   border-radius: 4px;
   position: relative;
+  transition: .5s ease-in-out;
+}
+.slider_card:hover{
+  box-shadow: 0px 24px 38px 0px #090F2512;
 }
 .slider_content h3{
   color: #000000DE;
@@ -816,4 +834,52 @@ header{
   font-weight: 400;
   line-height: 28px;
   color: #000000DE;
+}
+.article_time p{
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 18.75px;
+  color: #00000099;
+}
+.article_ads{
+  position: relative;
+}
+.article_ads img{
+  border-radius: 12px;
+  width: 100%;
+}
+.article_ads a{
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.article_link_toggle button{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #00000099;
+  margin-left: auto;
+}
+.article_sidebar{
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: var(--background);
+  box-shadow: 0px 24px 38px 0px #090F2512;
+}
+.article_sidebar a{
+  display: block;
+  padding: 14px 1rem;
+}
+.article_sidebar a.active{
+  background-color: #EDE7F6;
+  border-radius: 12px;
+  color: #5E35B1;
+}
+.search_form_bg input, .search_form_bg select{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #121926;
 }

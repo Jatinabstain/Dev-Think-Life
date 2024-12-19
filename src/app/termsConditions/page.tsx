@@ -1,5 +1,11 @@
 import Header from '../common/header';
 import Footer from '../common/footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Terms Conditions - Think Life',
+    description: 'Terms Conditions',
+}
 
 export default function termsConditions() {
     return (

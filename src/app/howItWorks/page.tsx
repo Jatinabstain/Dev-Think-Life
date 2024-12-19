@@ -6,6 +6,12 @@ import apply from '../../../public/assets/apply.svg';
 import policy from '../../../public/assets/policy.svg';
 import managePolicy from '../../../public/assets/managePolicy.svg';
 import claim from '../../../public/assets/claim.svg';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'How It Works - Think Life',
+    description: 'How It Works',
+}
 
 export default function aboutUs() {
     return (

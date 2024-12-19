@@ -9,6 +9,7 @@ import articleImg from '../../../public/assets/card-1.jpg';
 import ArticleCard from '../common/components/articles/articleCard';
 import Pagination from '../common/components/pagination';
 import Slider from '../common/slider/page';
+import type { Metadata } from 'next';
 
 const articles: ArticleItem[] = [
     { id: '1', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
@@ -27,6 +28,11 @@ const articles2: ArticleItem[] = [
     { id: '9', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
 ]
 
+export const metadata: Metadata = {
+    title: 'Blog - Think Life',
+    description: 'Blog',
+}
+
 export default function blog() {
     return (
         <>
@@ -36,7 +42,7 @@ export default function blog() {
                 <div className="blog_tabs max-w-[636px] mb-16 mx-auto">
                     <div className="flex gap-x-9 lg:justify-center items-center flex-wrap lg:gap-y-0 gap-y-6">
                         <Link href="blog" className='blog_tab_link active'>All</Link>
-                        <Link href="blogCategory" className='blog_tab_link'>Life Insurance</Link>
+                        <Link href="blog-category" className='blog_tab_link'>Life Insurance</Link>
                         <Link href="#" className='blog_tab_link'>Work-Life</Link>
                         <Link href="#" className='blog_tab_link'>Wellness</Link>
                         <Link href="#" className='blog_tab_link'>Money</Link>

@@ -1,5 +1,11 @@
 import Header from '../common/header';
 import Footer from '../common/footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Privacy Policy - Think Life',
+    description: 'Privacy Policy',
+}
 
 export default function privacyPolicy() {
     return (

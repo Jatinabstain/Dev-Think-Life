@@ -12,13 +12,15 @@ import mail from '../../../public/assets/mail.svg';
 import location from '../../../public/assets/location.svg';
 import Link from "next/link";
 
+
 export default function Footer() {
+    
     return (
         <>
             <footer className='footer'>
                 <div className="mx-auto max-w-7xl px-8">
                     <div className="pt-[91px] md:pb-[99px]">
-                        <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-4 gap-x-[38px] mb-8">
+                        <div className="flex md:flex-row flex-col lg:gap-y-0 gap-y-4 gap-x-[38px] mb-8">
                             <div className="lg:w-1/2"> 
                                 <BrandLogo />
                                 <Subscribe />
@@ -34,16 +36,16 @@ export default function Footer() {
                                             <Link href="products">Products</Link>
                                         </li>
                                         <li>
-                                            <Link href="aboutUs">About Us</Link>
+                                            <Link href="about-us">About Us</Link>
                                         </li>
                                         <li>
-                                            <Link href="#">How It Works</Link>
+                                            <Link href="how-it-works">How It Works</Link>
                                         </li>
                                         <li>
-                                            <Link href="privacyPolicy">Privacy Policy</Link>
+                                            <Link href="privacy-policy">Privacy Policy</Link>
                                         </li>
                                         <li>
-                                            <Link href="termsConditions">Terms and Conditions</Link>
+                                            <Link href="terms-conditions">Terms and Conditions</Link>
                                         </li>
                                     </ul>
                                 </div>

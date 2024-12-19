@@ -6,6 +6,12 @@ import aboutUsImg from '../../../public/assets/think-life.jpg';
 import dedication from '../../../public/assets/dedication.svg';
 import professionlism from '../../../public/assets/professionlism.svg';
 import teamwork from '../../../public/assets/teamwork.svg';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'About Us - Think Life',
+    description: 'About Us',
+}
 
 export default function aboutUs() {
     return (

@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from 'react';
 import Image from "next/image";
 import Form from "next/form";
 import Header from "./common/header";
@@ -16,16 +19,21 @@ import Faq from "./common/components/pageSections/faq";
 import ArticlesHome from "./common/components/pageSections/articlesHome";
 import { bigCardItem } from '@/types/bigCardItem';
 import BigCard from './common/components/bigCard/bigCard';
-import short from '../../public/assets/short.svg'
-import life from '../../public/assets/life.svg'
+import short from '../../public/assets/short.svg';
+import life from '../../public/assets/life.svg';
+import { MainModal } from './common/components/MainModal/MainModal';
 
 const bigCards: bigCardItem[] = [
-    { icon: short, name: 'Short-Term Disability Insurance', content: 'Unexpected illness or injury can disrupt your life and income. Our Short-Term Disability Insurance offers financial support by replacing a portion of your income during recovery. Benefit from fast approval, customizable coverage options, and peace of mind knowing that your essential expenses are covered while you focus on getting better.', href: 'shortTermDisabilityInsurance' },
-    { icon: life, name: 'Term Life Insurance', content: "Our Term Life Insurance provides affordable coverage for a specified period, ensuring your family’s financial security in the event of your passing. Choose a term length that fits your needs, with guaranteed level premiums and substantial death benefits. Plan for the future and safeguard your loved ones' financial stability today.", href: 'termLifeInsurance' },
+    { icon: short, name: 'Short-Term Disability Insurance', content: 'Unexpected illness or injury can disrupt your life and income. Our Short-Term Disability Insurance offers financial support by replacing a portion of your income during recovery. Benefit from fast approval, customizable coverage options, and peace of mind knowing that your essential expenses are covered while you focus on getting better.', href: 'short-term-disability-insurance' },
+    { icon: life, name: 'Term Life Insurance', content: "Our Term Life Insurance provides affordable coverage for a specified period, ensuring your family’s financial security in the event of your passing. Choose a term length that fits your needs, with guaranteed level premiums and substantial death benefits. Plan for the future and safeguard your loved ones' financial stability today.", href: 'term-life-insurance' },
 ]
 
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+  
   return (
     <>
       <Header />
@@ -37,7 +45,7 @@ export default function Home() {
               <div className="banner_content">
                 <h1><span>Think Life,</span> <br /> Think Insurance</h1>
                 <p className="mb-4">Tailored insurance policies with proper coverages and low rates. You can quote and buy your policy instantly online.</p>
-                <Link href="#" className="border border_primary text-white bg_primary py-4 px-5 rounded font-medium block w-fit bg_primary">Get Started</Link>
+                <Link href="https://quote.thinklife.com/" target='_blank' className="text-base border border_primary text-white bg_primary py-4 px-9 rounded font-medium block w-fit bg_primary">Get Started</Link>
               </div>
             </div>
             <div className="basis-1/1">
@@ -55,32 +63,40 @@ export default function Home() {
 
       {/* Search form start*/}
       <section className="search_form_bg">
-        <div className="mx-auto max-w-7xl px-8">
+        <div className="mx-auto max-w-7xl lg:px-8">
           <Form action=''>
-            <div className="flex lg:flex-row flex-wrap flex-col gap-y-5 gap-x-[38px]">
-              <div className="form-group lg:w-max w-full">
-                <label htmlFor="fName" className="form-label">First Name</label>
-                <input type="text" id="fName" className="form-control lg:w-max w-full" placeholder="First Name" />
+            <div className="flex flex-wrap gap-y-5">
+              <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full">
+                <label htmlFor="fName" className="form-label md:left-9 left-5">First Name</label>
+                <input type="text" id="fName" className="form-control" placeholder="First Name" />
               </div>
-              <div className="form-group lg:w-max w-full">
-                <label htmlFor="lName" className="form-label">Last Name</label>
-                <input type="text" id="lName" className="form-control lg:w-max w-full" placeholder="Last Name" />
+              <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full">
+                <label htmlFor="lName" className="form-label md:left-9 left-5">Last Name</label>
+                <input type="text" id="lName" className="form-control" placeholder="Last Name" />
               </div>
-              <div className="form-group lg:w-max w-full">
-                <label htmlFor="lName" className="form-label">Email</label>
-                <input type="text" id="lName" className="form-control lg:w-max w-full" placeholder="Email" />
+              <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full">
+                <label htmlFor="lName" className="form-label md:left-9 left-5">Email</label>
+                <input type="text" id="lName" className="form-control" placeholder="Email" />
               </div>
-              <div className="form-group lg:w-full max-w-52">
-                <label htmlFor="insuranceType" className="form-label">Insurance Type</label>
-                <select id="insuranceType" className="form-control form-select min-w-40 w-full">
-                  <option value="1">value</option>
+              <div className="form-group md:px-[19px] lg:basis-1/3 md:basis-8/12 w-full">
+                <label htmlFor="insuranceType" className="form-label md:left-9 left-5">Insurance Type</label>
+                <select id="insuranceType" className="form-control form-select w-full">
+                  <option defaultValue='0'>Please Select</option>
+                  <option value="1">Insurance Type</option>
+                  <option value="2">Short-Term Disability</option>
+                  <option value="3">Term Life</option>
                 </select>
               </div>
-              <Link href="#" className="btn_outline_big">Countinue</Link>
+              <div className="lg:basis-1/6 md:basis-1/3 w-full">
+                <div className="form-group md:px-[19px]">
+                  <button onClick={openModal} className="btn_outline_big w-full">Continue</button>
+                </div>
+              </div>
             </div>
           </Form>
         </div>
       </section>
+      <MainModal isOpen={isModalOpen} onClose={closeModal} />
       {/* Search form end*/}
 
       {/* How it works start */}
@@ -92,7 +108,7 @@ export default function Home() {
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-0 gap-y-4 gap-x-[38px] mb-8">
             <div className="bg_violet py-[26px] px-[42.5px] rounded-xl how_work_card">
-              <div className="card_icon bg_primary300 w-[59px] h-[59px] rounded flex items-center justify-center mb-9 mx-auto">
+              <div className="card_icon bg_primary300 w-[59px] h-[59px] rounded-xl flex items-center justify-center mb-9 mx-auto">
                 <p className="text_primary text-[50px] font-bold">1</p>
               </div>
               <div className="content">
@@ -101,7 +117,7 @@ export default function Home() {
               </div>
             </div>
             <div className="bg_violet py-[26px] px-[42.5px] rounded-xl how_work_card">
-              <div className="card_icon bg_primary300 w-[59px] h-[59px] rounded flex items-center justify-center mb-9 mx-auto">
+              <div className="card_icon bg_primary300 w-[59px] h-[59px] rounded-xl flex items-center justify-center mb-9 mx-auto">
                 <p className="text_primary text-[50px] font-bold">2</p>
               </div>
               <div className="content">
@@ -110,7 +126,7 @@ export default function Home() {
               </div>
             </div>
             <div className="bg_violet py-[26px] px-[42.5px] rounded-xl how_work_card">
-              <div className="card_icon bg_primary300 w-[59px] h-[59px] rounded flex items-center justify-center mb-9 mx-auto">
+              <div className="card_icon bg_primary300 w-[59px] h-[59px] rounded-xl flex items-center justify-center mb-9 mx-auto">
                 <p className="text_primary text-[50px] font-bold">3</p>
               </div>
               <div className="content">
@@ -120,8 +136,8 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center justify-center gap-x-4">
-            <Link href="#" className="border border_primary_light text_primary py-2.5 px-4 rounded font-medium">Learn More</Link>
-            <Link href="#" className="border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium">Get Started</Link>
+            <Link href="how-it-works" className="border border_primary_light text_primary py-2.5 px-4 rounded font-medium">Learn More</Link>
+            <Link href="https://quote.thinklife.com/" target='_blank' className="border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium">Get Started</Link>
           </div>
         </div>
       </section>
@@ -148,7 +164,7 @@ export default function Home() {
             <br />
             <p className="lg:w-2/4 mx-auto">With us, you get:</p>
           </div>
-          <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-4 gap-x-[38px] mb-8 items-center">
+          <div className="flex flex-wrap lg:flex-row flex-col lg:gap-y-0 gap-y-4 gap-x-[38px] mb-8 items-center">
             <div className="w-1/2">
               <Image
                 src={umbrella}
@@ -214,7 +230,7 @@ export default function Home() {
               <Image
                 src={umbrellaDown}
                 alt="benefits"
-                className="mx-auto min-h-[286px] object-contain"
+                className="mx-auto lg:min-h-[286px] min-h-40 object-contain"
               />
             </div>
           </div>

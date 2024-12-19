@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from 'react';
+
 import Header from '../common/header';
 import Footer from '../common/footer';
 import Image from 'next/image';
@@ -5,7 +9,10 @@ import article from '../../../public/assets/article.jpg';
 import insurance from '../../../public/assets/insurance.jpg';
 import { ArticleItem } from "@/types/articleCardTypes";
 import articleImg from '../../../public/assets/card-1.jpg';
+import adsImg from '../../../public/assets/ads.jpg';
+import arrowDown from '../../../public/assets/arrow-down.svg';
 import ArticleCard from '../common/components/articles/articleCard';
+import Link from 'next/link';
 
 const articles: ArticleItem[] = [
     { id: '1', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
@@ -14,6 +21,12 @@ const articles: ArticleItem[] = [
 ]
 
 export default function Article() {
+    const [isSidebarVisible, setSidebarVisible] = useState(true); // State to manage sidebar visibility
+
+    const toggleSidebar = () => {
+        setSidebarVisible(!isSidebarVisible); // Toggle the visibility
+    };
+
     return (
         <>
             <Header />
@@ -22,8 +35,9 @@ export default function Article() {
                     <Image src={article} alt="about us" className='page_img max-h-[524px] w-full' />
                 </div>
 
-                <div className="flex flex-wrap lg:flew-row flex-col">
-                    <div className="lg:w-8/12 lg:pr-9">
+                <div className="flex flex-wrap lg:flex-row flex-col">
+                    {/* lg:w-8/12 lg:pr-9 */}
+                    <div className="lg:w-3/4 lg:pr-9">
                         <div className="page_heading mb-16">
                             <h3><span>Accidental Death Insurance vs. Life Insurance</span></h3>
                         </div>
@@ -62,7 +76,49 @@ export default function Article() {
                             <p className='mb-32'>Accidental death insurance is meant to cover your family&apos;s financial needs if you die unexpectedly in an accident. Life insurance is built around the idea of replacing your income should you pass away. Both types of policies can be helpful for families who need help navigating an unexpected tragedy, but they&apos;re structured differently and have different goals.</p>
                         </div>
                     </div>
-                    <div className="lg:w-4/12 bg_primary"></div>
+                    <div className="lg:w-1/4">
+                    <div className="article_time">
+                            <p className='mb-16 text-right'>5 minute read</p>
+                        </div>
+
+                        <div className="article_tab mb-16">
+                            <div className="article_link_toggle mb-3">
+                                <button className='flex gap-[9px] w-fit' onClick={toggleSidebar}>In this Article <Image src={arrowDown} alt="" className='icon_down' /></button>
+                            </div>
+                            {isSidebarVisible && (
+                                <div className="article_sidebar">
+                                    <ul>
+                                        <li>
+                                            <Link href="#" className='active'>What is Accidental Death And Dismemberment Insurance (AD&D)?</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#">What is Life Insurance?</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#">AD&D vs. Life Insurance: Coverage</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#">AD&D vs. Life Insurance: Cost</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#">AD&D vs. Life Insurance: Requirements</Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#">Accidental Death Insurance Vs. Life Insurance </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#">The Bottom Line </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                        
+                        <div className="article_ads">
+                            <Image src={adsImg} alt='ads' />
+                            <Link href="#" className="border border_primary text-white bg_primary py-4 px-5 rounded font-medium block w-fit bg_primary">Get my Quote</Link>
+                        </div>
+                    </div>
                 </div>
 
                 <section className='mb-32'>

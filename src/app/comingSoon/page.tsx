@@ -1,6 +1,6 @@
-"use client"; // Add this line at the top of your file
+"use client";
 
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Header from '../common/header';
 import Footer from '../common/footer';
@@ -8,19 +8,13 @@ import comingSoon from '../../../public/assets/coming-soon.svg';
 import FacebookDark from '../../../public/assets/facebook-dark.svg';
 import InstagramDark from '../../../public/assets/instagram-dark.svg';
 import Link from 'next/link';
-// import Modal from '../common/components/Modal/page'; // Import the Modal component
+import { MainModal } from '../common/components/MainModal/MainModal';
 
 export default function ComingSoon() {
-    // const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-    // const handleNotifyClick = (e: { preventDefault: () => void; }) => {
-    //     e.preventDefault(); // Prevent default link behavior
-    //     setIsModalOpen(true); // Open the modal
-    // };
-
-    // const closeModal = () => {
-    //     setIsModalOpen(false); // Close the modal
-    // };
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     return (
         <>
@@ -35,8 +29,7 @@ export default function ComingSoon() {
                             <h3 className='mb-4'>Get notified when we launch</h3>
                             <div className="flex gap-4 justify-center items-center">
                                 <input type="text" className='form-input max-w-[308px] w-full' placeholder='Enter your email address' />
-                                {/* onClick={handleNotifyClick} */}
-                                <button  className='border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow'>Notify Me</button>
+                                <button onClick={openModal} className='border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow' >Notify Me</button>
                             </div>
                         </div>
 
@@ -54,8 +47,7 @@ export default function ComingSoon() {
                 </div>
             </div>
             <Footer />
-            {/* <Modal isOpen={isModalOpen} onClose={closeModal} />  */}
-            {/* Render the modal */}
+            <MainModal isOpen={isModalOpen} onClose={closeModal} />
         </>
     );
 }

@@ -28,7 +28,7 @@ export default function blogCategory() {
                 <div className="blog_tabs max-w-[636px] mb-16 mx-auto">
                     <div className="flex gap-x-9 lg:justify-center items-center flex-wrap lg:gap-y-0 gap-y-6">
                         <Link href="blog" className='blog_tab_link active'>All</Link>
-                        <Link href="blogCategory" className='blog_tab_link'>Life Insurance</Link>
+                        <Link href="blog-category" className='blog_tab_link'>Life Insurance</Link>
                         <Link href="#" className='blog_tab_link'>Work-Life</Link>
                         <Link href="#" className='blog_tab_link'>Wellness</Link>
                         <Link href="#" className='blog_tab_link'>Money</Link>

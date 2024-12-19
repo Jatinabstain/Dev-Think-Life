@@ -61,7 +61,7 @@ export default function termLifeInsurance() {
                         <div className="get_quote flex flex-col justify-center items-center">
                             <div className="flex items-center gap-8">
                                 <p>Invest in Your Family&apos;s Future</p>
-                                <Link href="" className='border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow'>Get a Qoute</Link>
+                                <Link href="" className='border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow'>Get a Quote</Link>
                             </div>
                         </div>
                     </div>
