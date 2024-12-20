@@ -7,6 +7,15 @@ import policy from '../../../public/assets/policy.svg';
 import managePolicy from '../../../public/assets/managePolicy.svg';
 import claim from '../../../public/assets/claim.svg';
 import type { Metadata } from 'next';
+import ArticleCard from '../common/components/articles/articleCard';
+import { ArticleItem } from "@/types/articleCardTypes";
+import articleImg from '../../../public/assets/card-1.jpg';
+
+const articles: ArticleItem[] = [
+    { id: '1', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read",  href: "article", image: articleImg },
+    { id: '2', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read",  href: "article", image: articleImg },
+    { id: '3', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read",  href: "article", image: articleImg }
+]
 
 export const metadata: Metadata = {
     title: 'How It Works - Think Life',
@@ -21,7 +30,7 @@ export default function aboutUs() {
                 <div className="page_heading mb-8 mt-16">
                     <h3>How<span>it works</span></h3>
                 </div>
-                <div className="how_works_cards">
+                <div className="how_works_cards mb-32">
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-[76px] gap-y-[38px] gap-x-[38px] mb-32 justify-center items-center how_grid">
                         <div className="how_card">
                             <div className="how_icon mb-5">
@@ -80,6 +89,14 @@ export default function aboutUs() {
                         </div>
                     </div>
                 </div>
+                <section className="page_section pb-[128px]">
+                    <div className="mx-auto max-w-7xl px-8">
+                        <div className="heading mb-8">
+                            <h3>Blog</h3>
+                        </div>
+                        <ArticleCard articles={articles} />
+                    </div>
+                </section>
             </div>
             <Footer />
         </>
