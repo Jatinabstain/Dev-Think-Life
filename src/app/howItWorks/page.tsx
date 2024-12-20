@@ -90,12 +90,10 @@ export default function aboutUs() {
                     </div>
                 </div>
                 <section className="page_section pb-[128px]">
-                    <div className="mx-auto max-w-7xl px-8">
-                        <div className="heading mb-8">
-                            <h3>Blog</h3>
-                        </div>
-                        <ArticleCard articles={articles} />
+                    <div className="heading mb-8">
+                        <h3>Blog</h3>
                     </div>
+                    <ArticleCard articles={articles} />
                 </section>
             </div>
             <Footer />

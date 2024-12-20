@@ -32,6 +32,14 @@ const nextConfig: NextConfig = {
         source: '/terms-conditions',
         destination: '/termsConditions'
       },
+      {
+        source: '/500',
+        destination: '/error500'
+      },
+      {
+        source: '/coming-soon',
+        destination: '/comingSoon'
+      },
     ]
   }
 };

@@ -30,7 +30,7 @@ header nav{
   padding: 22px;
 }
 header{
-  border: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .outline_btn{
   padding: 7px 15.069px;
@@ -44,6 +44,18 @@ header{
   border-radius: 4px;
   line-height: normal;
 }
+.outline_btn_small{
+  padding: 7px 15.07px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--primary);
+  border: 1px solid #C3B0F6;
+  border-radius: 4px;
+  line-height: normal;
+}
 .nav_link{
   font-size: 14px;
   font-weight: 500;
@@ -52,6 +64,9 @@ header{
 }
 .nav_link.active, .mobile_link.active{
   color: var(--primary);
+}
+.active{
+  color: var(--primary) !important;
 }
 .mobile_link{
   font-size: 14px;
@@ -71,6 +86,68 @@ header{
   border-radius: 4px;
   line-height: normal;
   box-shadow: 0px 1px 1px -2px #00000033, 0px 1px 2px 0px #00000024, 0px 1px 5px 0px #0000001F;
+}
+.fill_btn_small{
+  padding: 7px 15.49px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--background);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  line-height: normal;
+  box-shadow: 0px 1px 1px -2px #00000033, 0px 1px 2px 0px #00000024, 0px 1px 5px 0px #0000001F;
+}
+.primary_fill_big{
+  background-color: var(--primary);
+  color: var(--background);
+  padding: 18.5px 32.321px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px -2px #00000033, 0px 1px 2px 0px #00000024, 0px 1px 5px 0px #0000001F;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.primary_fill{
+  background-color: var(--primary);
+  color: var(--background);
+  padding: 11.5px 16.4px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px -2px #00000033, 0px 1px 2px 0px #00000024, 0px 1px 5px 0px #0000001F;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.primary_fill_outline{
+  background-color: var(--background);
+  color: var(--primary);
+  border: 1px solid var(--primaryLight);
+  padding: 10.5px 15.31px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.primary_fill_icon{
+  background-color: var(--primary);
+  color: var(--background);
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px -2px #00000033, 0px 1px 2px 0px #00000024, 0px 1px 5px 0px #0000001F;
+  display: block;
+  width: fit-content;
+  height: fit-content;
 }
 .banner_section{
   padding: 53px 0 80px;
@@ -145,7 +222,7 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 13px;
+  padding: 15px;
   border-radius: 4px;
 }
 .form-select{
@@ -155,6 +232,13 @@ header{
   background-position: center right 24px;
   background-size: 10px;
   background-color: var(--background);
+}
+.heading h2{
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+  color: #000000DE;
 }
 .heading h3{
   font-size: 34px;
@@ -352,8 +436,17 @@ header{
 }
 .article_image{
   width: 100%;
-  height: 161px;
   object-fit: cover;
+}
+.page_heading h1{
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 65px;
+  color: #000000DE;
+}
+.page_heading h1 span{
+  color: #8761ED; 
 }
 .page_heading h3{
   font-size: 50px;
@@ -363,7 +456,7 @@ header{
   color: #000000DE;
 }
 .page_heading h3 span{
-  color: #8B66EF; 
+  color: var(--primary);
 }
 .products p{
   text-align: left;
@@ -378,6 +471,14 @@ header{
   width: 100%;
   height: 400px ;
   object-fit: contain;
+}
+.inner_heading h2{
+  font-size: 34px !important;
+  font-weight: 900 !important;
+  margin: 0;
+  line-height: 42px;
+  color: #000000DE;
+  margin-bottom: 42px;
 }
 .inner_heading h3{
   font-size: 34px !important;
@@ -443,7 +544,7 @@ header{
   font-size: 16px;
   line-height: 18.75px;
   font-weight: 400;
-  color: var(--primary);
+  color: #8B66EF;
 }
 .cover_card h3{
   font-weight: 700;
@@ -456,10 +557,11 @@ header{
 .bubble_bg{
   background-image: url('../../public/assets/bubble.svg');
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-position: center 52px;
   background-repeat: no-repeat;
-  margin-bottom: 141px;
+  padding: 141px 0 260px;
+  background-size: 100%;
 }
 .comming_soon p{
   color: #4B5565;
@@ -846,7 +948,10 @@ header{
 }
 .article_ads img{
   border-radius: 12px;
-  width: 100%;
+  width: auto;
+  height: 407px;
+  object-fit: cover;
+  margin: 0 auto 4rem;
 }
 .article_ads a{
   position: absolute;
@@ -882,4 +987,7 @@ header{
   font-weight: 500;
   line-height: 20px;
   color: #121926;
+}
+.text_base{
+  font-size: 20px !important;
 }

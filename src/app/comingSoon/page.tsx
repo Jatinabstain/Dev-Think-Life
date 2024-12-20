@@ -29,7 +29,7 @@ export default function ComingSoon() {
                             <h3 className='mb-4'>Get notified when we launch</h3>
                             <div className="flex gap-4 justify-center items-center">
                                 <input type="text" className='form-input max-w-[308px] w-full' placeholder='Enter your email address' />
-                                <button onClick={openModal} className='border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow' >Notify Me</button>
+                                <button onClick={openModal} className='primary_fill' >Notify Me</button>
                             </div>
                         </div>
 

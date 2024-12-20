@@ -38,7 +38,7 @@ export default function aboutUs() {
                     <div className="card_heading">
                         <h3>Our Values</h3>
                     </div>
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-0 gap-y-4 gap-x-[38px] mb-32">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-0 gap-[38px] mb-32">
                         <div className="value_card">
                             <div className="value_card_icon">
                                 <Image src={dedication} alt='Dedication' className='mx-auto' />
@@ -66,7 +66,7 @@ export default function aboutUs() {
                         <h3 className='mb-2'>Why Choose Us</h3>
                         <p>We work hard to ensure a better future for our private and corporate clients, employees, partners, and shareholders. </p>
                     </div>
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-0 gap-y-4 gap-x-[38px] mb-16">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-0 gap-[38px] mb-16">
                         <div className="value_card">
                             <div className="count mx-auto">
                                 <p>1</p>
@@ -89,7 +89,7 @@ export default function aboutUs() {
                             <p> If you&apos;re unhappy with your policy, we&apos;ll refund your payment in full within 30 days. Additionally, you can cancel your policy for free at any time. With us, you have the flexibility to choose what works best for you.</p>
                         </div>
                     </div>
-                    <Link href="#" className="border border_primary text-white bg_primary py-4 px-9 rounded font-medium block w-fit bg_primary mx-auto">Get Started</Link>
+                    <Link href="https://quote.thinklife.com/" target='_blank' className="primary_fill_big mx-auto">Get Started</Link>
                 </div>
             </div>
             <Footer />

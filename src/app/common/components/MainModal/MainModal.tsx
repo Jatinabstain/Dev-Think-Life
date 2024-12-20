@@ -17,7 +17,7 @@ export const MainModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ 
                 <Image src={check} alt='check' className='mx-auto mb-6' />
                 <h2>Thank you for getting in touch!</h2>
                 <p>We will notify you as soon as possible. <br /> Have a great day!</p>
-                <button onClick={onClose} className="block ms-auto border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow">
+                <button onClick={onClose} className="primary_fill ms-auto">
                     Close
                 </button>
             </div>

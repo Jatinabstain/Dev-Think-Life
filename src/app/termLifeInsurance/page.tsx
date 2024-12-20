@@ -4,6 +4,12 @@ import Footer from '../common/footer';
 import TermLife from '../../../public/assets/term-life.jpg';
 import Setting from '../../../public/assets/setting.svg';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Term Life Insurance - Think Life',
+    description: 'Term Life Insurance',
+}
 
 export default function termLifeInsurance() {
     return (
@@ -12,7 +18,7 @@ export default function termLifeInsurance() {
             <section className="page_section pb-[128px] pt-16">
                 <div className="mx-auto max-w-7xl px-8">
                     <div className="page_heading mb-[55px]">
-                        <h3>Term Life <span>Insurance</span></h3>
+                        <h1>Term Life <span>Insurance</span></h1>
                     </div>
 
                     <div className="page_img mb-16">
@@ -20,7 +26,7 @@ export default function termLifeInsurance() {
                     </div>
                     <div className="inner_content">
                         <div className="inner_heading">
-                            <h3>Secure Your Loved Ones&apos; Future</h3>
+                            <h2>Secure Your Loved Ones&apos; Future</h2>
                         </div>
                         <p className='mb-16'>Life is unpredictable, and ensuring your family&apos;s financial security is a top priority. Term Life Insurance provides a straightforward, affordable way to protect your loved ones if something happens to you.</p>
 
@@ -59,9 +65,9 @@ export default function termLifeInsurance() {
                         <p className='mb-16'>The amount of coverage you need depends on several factors, including your income, debts, and the financial needs of your dependents. A general rule of thumb is to have coverage that is 10-12 times your annual income. Consider your family&apos;s living expenses, outstanding debts, future education costs, and any other financial obligations when determining the coverage amount.</p>
 
                         <div className="get_quote flex flex-col justify-center items-center">
-                            <div className="flex items-center gap-8">
-                                <p>Invest in Your Family&apos;s Future</p>
-                                <Link href="" className='border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow'>Get a Quote</Link>
+                            <div className="flex md:flex-row flex-col items-center md:gap-8 gap-4">
+                                <p className='text_base'>Invest in Your Family&apos;s Future</p>
+                                <Link href="https://quote.thinklife.com/" target='_blank' className='primary_fill'>Get a Quote</Link>
                             </div>
                         </div>
                     </div>

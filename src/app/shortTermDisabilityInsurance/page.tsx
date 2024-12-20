@@ -6,6 +6,12 @@ import Setting from '../../../public/assets/setting.svg';
 import pig from '../../../public/assets/pigibank.jpg';
 import calc from '../../../public/assets/calc.jpg';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+    title: 'Short-Term Disability Insurance - Think Life',
+    description: 'Short-Term Disability Insurance',
+}
 
 export default function shortTermDisabilityInsurance() {
     return (
@@ -14,7 +20,7 @@ export default function shortTermDisabilityInsurance() {
             <section className="page_section pb-[128px] pt-16">
                 <div className="mx-auto max-w-7xl px-8">
                     <div className="page_heading mb-[105px]">
-                        <h3>Short-Term Disability <span>Insurance</span></h3>
+                        <h1>Short-Term Disability <span>Insurance</span></h1>
                     </div>
 
                     <div className="page_img mb-16">
@@ -22,7 +28,7 @@ export default function shortTermDisabilityInsurance() {
                     </div>
                     <div className="inner_content">
                         <div className="inner_heading">
-                            <h3>Protect Your Income, Secure Your Future</h3>
+                            <h2>Protect Your Income, Secure Your Future</h2>
                         </div>
                         <p className='mb-16'>No one is immune to illness or accidents. According to the Social Security Administration, more than 1 in 4 of today&apos;s 20-year-olds will become disabled before reaching retirement age. This alarming statistic underscores the need for a reliable safety net. That&apos;s where our Short-Term Disability Insurance comes into play.</p>
 
@@ -142,9 +148,9 @@ export default function shortTermDisabilityInsurance() {
                         <p className='mb-16'><span className='text_primary'>Stay-at-Home Spouse Disability Income Rider: </span> Provides benefits if the insured spouse becomes totally disabled.</p>
 
                         <div className="get_quote flex flex-col justify-center items-center">
-                            <div className="flex items-center gap-8">
-                                <p>Invest in Your Family&apos;s Future</p>
-                                <Link href="" className='border border_primary text-white bg_primary py-2.5 px-4 rounded font-medium btn_shadow'>Get a Quote</Link>
+                            <div className="flex md:flex-row flex-col items-center md:gap-8 gap-4">
+                                <p className='text_base'>Invest in Your Family&apos;s Future</p>
+                                <Link href="https://quote.thinklife.com/" target='_blank' className='primary_fill'>Get a Quote</Link>
                             </div>
                         </div>
                     </div>

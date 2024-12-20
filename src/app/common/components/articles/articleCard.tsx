@@ -11,13 +11,13 @@ export default function ArticleCard({ articles }: ArticleCardProps) {
         return <p>No article available.</p>;
     }
     return (
-        <div className="grid items-start gap-4 lg:grid-cols-3 md:grid-cols-2 md:gap-6">
+        <div className="grid items-start gap-[38px] lg:grid-cols-3 md:grid-cols-2 md:gap-6">
             {articles.map((item) => (
                 <div key={item.id}>
                     <Link href={item.href}>
                         <div className="article_card">
                             <div className="position-relative">
-                                <Image src={item.image} alt="" className="article_image" width={387} height={175} />
+                                <Image src={item.image} alt="" className="article_image" width={387} height={176} />
                             </div>
                             <div className="article_content">
                                 <small>{item.date}</small>

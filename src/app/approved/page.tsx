@@ -2,6 +2,12 @@ import Image from 'next/image'
 import Header from '../common/header';
 import Footer from '../common/footer';
 import approved from '../../../public/assets/approved.svg';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Approved With Changes - Think Life',
+    description: 'Approved With Changes',
+}
 
 export default function error500() {
     return (

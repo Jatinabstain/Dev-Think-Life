@@ -20,17 +20,17 @@ import { MenuItem } from '@/types/types';
 
 const menus: MenuItem[] = [
     { name: 'Home', href: '/' },
-    { name: 'Products', href: 'products' },
-    { name: 'Blog', href: 'blog' },
-    { name: 'About Us', href: 'about-us' },
-    { name: 'How It Works', href: 'how-it-works' }
+    { name: 'Products', href: '/products' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'How It Works', href: '/how-it-works' }
 ]
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <header className="bg-white border border-gray-300">
+        <header className="bg-white border-b border-gray-300">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
@@ -60,7 +60,7 @@ export default function Header() {
                 <div className="fixed inset-0 z-10" />
                 <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <Link href="#" className="-m-1.5 p-1.5">
+                        <Link href="/" className="-m-1.5 p-1.5">
                             <Image
                                 src={logo}
                                 alt="Logo"

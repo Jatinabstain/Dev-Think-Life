@@ -31,15 +31,14 @@ export default function Article() {
         <>
             <Header />
             <div className="mx-auto max-w-7xl px-8">
-                <div className="my-[102px]">
+                <div className="mb-[102px] mt-16">
                     <Image src={article} alt="about us" className='page_img max-h-[524px] w-full' />
                 </div>
 
                 <div className="flex flex-wrap lg:flex-row flex-col">
-                    {/* lg:w-8/12 lg:pr-9 */}
                     <div className="lg:w-3/4 lg:pr-9">
                         <div className="page_heading mb-16">
-                            <h3><span>Accidental Death Insurance vs. Life Insurance</span></h3>
+                            <h1><span>Accidental Death Insurance vs. Life Insurance</span></h1>
                         </div>
 
                         <div className="artical_inner">
@@ -73,12 +72,12 @@ export default function Article() {
                             <Image src={insurance} alt='Do You Need Both AD&D and Life Insurance?'  className='mb-8'/>
 
                             <h3 className="mb-4">The Bottom Line</h3>
-                            <p className='mb-32'>Accidental death insurance is meant to cover your family&apos;s financial needs if you die unexpectedly in an accident. Life insurance is built around the idea of replacing your income should you pass away. Both types of policies can be helpful for families who need help navigating an unexpected tragedy, but they&apos;re structured differently and have different goals.</p>
+                            <p className='mb-8'>Accidental death insurance is meant to cover your family&apos;s financial needs if you die unexpectedly in an accident. Life insurance is built around the idea of replacing your income should you pass away. Both types of policies can be helpful for families who need help navigating an unexpected tragedy, but they&apos;re structured differently and have different goals.</p>
                         </div>
                     </div>
                     <div className="lg:w-1/4">
                     <div className="article_time">
-                            <p className='mb-16 text-right'>5 minute read</p>
+                            <p className='lg:mb-16 mb-8 text-right'>5 minute read</p>
                         </div>
 
                         <div className="article_tab mb-16">

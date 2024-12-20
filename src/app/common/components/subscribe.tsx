@@ -14,9 +14,9 @@ export default function Subscribe() {
             <Form action="/">
                 <div className="form-group">
                     <label htmlFor="subscribe" className="light_label">Subscribe to our newsletter</label>
-                    <div className="flex flex-wrap gap-x-4 gap-y-4">
+                    <div className="flex flex-wrap gap-x-4 gap-y-4 items-center">
                         <input type="text" id="subscribe" className="min-w-[308px] form-control" placeholder="Your Email" />
-                        <button type="submit" onClick={openModal} className="fill_btn">Subscribe</button>
+                        <button type="submit" onClick={openModal} className="primary_fill">Subscribe</button>
                     </div>
                 </div>
             </Form>
