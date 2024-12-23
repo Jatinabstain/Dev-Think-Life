@@ -34,7 +34,7 @@ export default function Home() {
       <Header />
       {/* Top banner start */}
       <section className="banner_section">
-        <div className="mx-auto max-w-7xl px-8">
+        <div className="mx-auto max-w-[1200px] px-8">
           <div className="lg:flex flex-row items-center">
             <div className="basis-1/2">
               <div className="banner_content">
@@ -58,10 +58,10 @@ export default function Home() {
 
       {/* Search form start*/}
       <section className="search_form_bg">
-        <div className="mx-auto max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-[1200px] lg:px-8">
           <Form action=''>
             <div className="flex flex-wrap gap-y-5 items-center">
-              <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full">
+              <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full lg:ps-0">
                 <label htmlFor="fName" className="form-label md:left-9 left-5">First Name</label>
                 <input type="text" id="fName" className="form-control" placeholder="First Name" />
               </div>
@@ -83,7 +83,7 @@ export default function Home() {
                 </select>
               </div>
               <div className="lg:basis-1/6 md:basis-1/3 w-full">
-                <div className="form-group md:px-[19px]">
+                <div className="form-group md:px-[19px] lg:pe-0">
                   <button onClick={openModal} className="btn_outline_big w-full">Continue</button>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* How it works start */}
       <section className="page_section pt-[100px] pb-[128px]">
-        <div className="mx-auto max-w-7xl px-8">
+        <div className="mx-auto max-w-[1200px] px-8">
           <div className="heading mb-8">
             <h2>How It Works</h2>
             <p>Getting life insurance with our company is easy. Heret&apos;s how it works:</p>
@@ -140,7 +140,7 @@ export default function Home() {
 
       {/* What We Offer Start */}
       <section className="page_section pb-[128px]">
-        <div className="mx-auto max-w-7xl px-8">
+        <div className="mx-auto max-w-[1200px] px-8">
           <div className="heading mb-8">
             <h3>What We Offer</h3>
             <p className="lg:w-2/4 mx-auto">Life insurance is a must if your loved ones are financially dependent on you. It shields your beneficiaries from unforeseen circumstances and supports them through a painful time of loss.</p>
@@ -152,7 +152,7 @@ export default function Home() {
 
       {/* Benefits Start */}
       <section className="page_section pb-[128px]">
-        <div className="mx-auto max-w-7xl px-8">
+        <div className="mx-auto max-w-[1200px] px-8">
           <div className="heading mb-8">
             <h3>Benefits</h3>
             <p className="lg:w-2/4 mx-auto ">We know that buying insurance can be confusing, especially when you have to deal with a lot of jargon and legalese. Wet&apos;ve made it our mission to make the process as easy and straightforward as possible.</p>

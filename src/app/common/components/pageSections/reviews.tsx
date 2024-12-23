@@ -23,7 +23,7 @@ export default function Reviews() {
 
     return (
         <section className="page_section pb-[128px]">
-            <div className="mx-auto max-w-7xl px-8">
+            <div className="mx-auto max-w-[1200px] px-8">
                 <div className="heading mb-8">
                     <h3>What People Say About Us</h3>
                 </div>

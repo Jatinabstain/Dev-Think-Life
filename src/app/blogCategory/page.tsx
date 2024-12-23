@@ -29,7 +29,7 @@ export default function blogCategory() {
     return (
         <>
             <Header />
-            <div className="mx-auto max-w-7xl px-8">
+            <div className="mx-auto max-w-[1200px] px-8">
                 <Search />
                 <BlogTabs />
 

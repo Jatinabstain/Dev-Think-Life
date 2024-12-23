@@ -26,7 +26,7 @@ export default function aboutUs() {
     return (
         <>
             <Header />
-            <div className="mx-auto max-w-7xl px-8">
+            <div className="mx-auto max-w-[1200px] px-8">
                 <div className="page_heading mb-8 mt-16">
                     <h3>How<span>it works</span></h3>
                 </div>

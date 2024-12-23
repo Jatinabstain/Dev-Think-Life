@@ -28,7 +28,7 @@ export default function Footer() {
     return (
         <>
             <footer className='footer'>
-                <div className="mx-auto max-w-7xl px-8">
+                <div className="mx-auto max-w-[1200px] px-8">
                     <div className="pt-[91px] md:pb-[99px]">
                         <div className="flex md:flex-row flex-col lg:gap-y-0 gap-[38px] mb-8">
                             <div className="lg:w-1/2"> 
@@ -124,7 +124,7 @@ export default function Footer() {
                 </div>
             </footer>
             <section className='footer_bottom py-[31px]'>
-                <div className="mx-auto max-w-7xl px-8">
+                <div className="mx-auto max-w-[1200px] px-8">
                     <p className='text-sm font-normal text-white'>© ThinkLife 2024, All rights reserved</p>
                 </div>
             </section>

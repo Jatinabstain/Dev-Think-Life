@@ -30,7 +30,7 @@ export default function Article() {
     return (
         <>
             <Header />
-            <div className="mx-auto max-w-7xl px-8">
+            <div className="mx-auto max-w-[1200px] px-8">
                 <div className="mb-[102px] mt-16">
                     <Image src={article} alt="about us" className='page_img max-h-[524px] w-full' />
                 </div>

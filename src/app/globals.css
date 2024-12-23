@@ -305,7 +305,7 @@ header{
 }
 .subscribe_newsletter input{
   min-height: auto;
-  width: auto;
+  /* width: auto; */
   padding: 12.5px 1rem;
 }
 .about_card{
@@ -695,11 +695,11 @@ header{
 }
 .pagination li:not(:first-child, :last-child) .page_num.active{
   background-color: var(--primary);
-  color: var(--background);
+  color: var(--background) !important;
 }
 .pagination li:not(:first-child, :last-child) .page_num:hover{
   background-color: var(--primary);
-  color: var(--background);
+  color: var(--background) !important;
 }
 .error_content h3{
   font-size: 50px;
@@ -978,6 +978,11 @@ header{
   padding: 14px 1rem;
 }
 .article_sidebar a.active{
+  background-color: #EDE7F6;
+  border-radius: 12px;
+  color: #5E35B1;
+}
+.article_sidebar a:hover{
   background-color: #EDE7F6;
   border-radius: 12px;
   color: #5E35B1;

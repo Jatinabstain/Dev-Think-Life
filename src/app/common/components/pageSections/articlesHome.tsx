@@ -13,7 +13,7 @@ const articles: ArticleItem[] = [
 export default function ArticlesHome() {
     return (
         <section className="page_section pb-[128px]">
-            <div className="mx-auto max-w-7xl px-8">
+            <div className="mx-auto max-w-[1200px] px-8">
                 <div className="heading mb-8">
                     <h3>Our Recent Articles</h3>
                 </div>
