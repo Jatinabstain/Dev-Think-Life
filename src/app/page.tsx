@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from "next/image";
 import Form from "next/form";
 import Header from "./common/header";
-import Loader from "./common/components/loader/loader";
+// import Loader from "./common/components/loader/loader";
 import bannerImg from '../../public/assets/banner-img.png'
 import Footer from "./common/footer";
 import Link from "next/link";
@@ -32,7 +32,7 @@ export default function Home() {
   
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <Header />
       {/* Top banner start */}
       <section className="banner_section">
