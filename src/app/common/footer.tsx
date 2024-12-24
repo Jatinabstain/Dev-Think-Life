@@ -30,7 +30,7 @@ export default function Footer() {
             <footer className='footer'>
                 <div className="mx-auto max-w-[1200px] px-8">
                     <div className="pt-[91px] md:pb-[99px]">
-                        <div className="flex md:flex-row flex-col lg:gap-y-0 gap-[38px] mb-8">
+                        <div className="flex md:flex-row flex-col lg:gap-y-0 gap-[38px]">
                             <div className="lg:w-1/2"> 
                                 <BrandLogo />
                                 <Subscribe />
