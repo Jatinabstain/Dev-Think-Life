@@ -37,7 +37,7 @@ export default function Home() {
       {/* Top banner start */}
       <section className="banner_section">
         <div className="mx-auto max-w-[1200px] px-8">
-          <div className="lg:flex flex-row items-center">
+          <div className="flex lg:flex-row flex-col items-center lg:gap-y-0 gap-y-[38px]">
             <div className="basis-1/2">
               <div className="banner_content">
                 <h1><span>Think Life,</span> <br /> Think Insurance</h1>
@@ -50,6 +50,7 @@ export default function Home() {
                 <Image
                   src={bannerImg}
                   alt=""
+                  className='md:min-h-[454px]'
                 />
               </div>
             </div>
@@ -64,19 +65,19 @@ export default function Home() {
           <Form action=''>
             <div className="flex flex-wrap gap-y-5 items-center">
               <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full lg:ps-0">
-                <label htmlFor="fName" className="form-label md:left-9 left-5">First Name</label>
+                <label htmlFor="fName" className="form-label md:left-[21px] left-5">First Name</label>
                 <input type="text" id="fName" className="form-control" placeholder="First Name" />
               </div>
               <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full">
-                <label htmlFor="lName" className="form-label md:left-9 left-5">Last Name</label>
+                <label htmlFor="lName" className="form-label md:left-[40px] left-5">Last Name</label>
                 <input type="text" id="lName" className="form-control" placeholder="Last Name" />
               </div>
               <div className="form-group md:px-[19px] lg:basis-1/6 md:basis-1/3 w-full">
-                <label htmlFor="lName" className="form-label md:left-9 left-5">Email</label>
+                <label htmlFor="lName" className="form-label md:left-[40px] left-5">Email</label>
                 <input type="text" id="lName" className="form-control" placeholder="Email" />
               </div>
               <div className="form-group md:px-[19px] lg:basis-1/3 md:basis-8/12 w-full">
-                <label htmlFor="insuranceType" className="form-label md:left-9 left-5">Insurance Type</label>
+                <label htmlFor="insuranceType" className="form-label md:left-[40px] left-5">Insurance Type</label>
                 <select id="insuranceType" className="form-control form-select w-full">
                   <option defaultValue='0'>Please Select</option>
                   <option value="1">Insurance Type</option>

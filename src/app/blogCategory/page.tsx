@@ -1,46 +1,102 @@
+"use client"; // This line makes it a client component
+import React, { useState, useEffect } from 'react';
+
 import Header from '../common/header';
 import Footer from '../common/footer';
 import Search from '../common/search/page';
-import { ArticleItem } from "@/types/articleCardTypes";
-import articleImg from '../../../public/assets/card-1.jpg';
 import ArticleCard from '../common/components/articles/articleCard';
 import Pagination from '../common/components/pagination';
-import type { Metadata } from 'next';
 import BlogTabs from '../common/components/blog/blogTabs';
+import useNotionClient from '../common/components/NotionClient';
+import { CategoryItem } from '@/types/categoryTypes';
+import { ArticleItem } from '@/types/articleCardTypes';
+import Loader from '../common/components/loader/loader';
 
-export const metadata: Metadata = {
-    title: 'Life Insurance - Think Life',
-    description: 'Life Insurance',
-}
+export default function BlogCategory() {
+    
+    const { data: articles2, loading: loadingArticles2, error: errorArticles2 } = useNotionClient({ fetchFor: "Article2" });
+    const { data: categoriesData, loading: loadingCategories, error: errorCategories } = useNotionClient({ fetchFor: "Categories" });
 
-const articles2: ArticleItem[] = [
-    { id: '1', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '2', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '3', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '4', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '5', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '6', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '7', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '8', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-    { id: '9', title: "Nike Sneakers", date: "4 Feb 2024", content: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.  Amet minim mollit non deserunt", time: "5 Minute Read", href: "article", image: articleImg.src },
-]
+    const loading = loadingArticles2 || loadingCategories;
+    const error = errorArticles2 || errorCategories;
 
-export default function blogCategory() {
+    // Transform categoriesData to match CategoryItem structure
+    const categories: CategoryItem[] = Array.isArray(categoriesData) ? categoriesData.map((category) => ({
+        id: parseInt(category.id), // Ensure id is a number
+        name: category.name || "Unnamed Category", // Ensure title is available
+        href: category.href,
+    })) : [];
+
+
+
+
+
+
+    // #################### pagination
+
+    // const searchParams = useSearchParams();
+
+    // const initialPage = parseInt(searchParams.get('page') || '1', 10); // Get the initial page from query parameters
+
+    const [currentPage, setCurrentPage] = useState(1); // Manage currentPage using state
+
+    // Assuming articles is an array and you have a total count
+    const totalArticles = articles2.length; // Replace with actual total count from your API
+
+    const articlesPerPage = 1; // Define how many articles per page
+
+    const totalPages = Math.ceil(totalArticles / articlesPerPage); // Calculate total pages
+
+    const [currentArticles, setCurrentArticles] = useState<ArticleItem[]>([]);
+
+    useEffect(() => {
+        if (articles2) {
+            const startIndex = (currentPage - 1) * articlesPerPage;
+            const endIndex = startIndex + articlesPerPage;
+            setCurrentArticles(articles2.slice(startIndex, endIndex));
+        }
+    }, [articles2, currentPage]);
+
+    const handlePageChange = (newPage: number) => {
+        setCurrentPage(newPage); // Update currentPage state
+        const startIndex = (newPage - 1) * articlesPerPage;
+        const endIndex = startIndex + articlesPerPage;
+        setCurrentArticles(articles2.slice(startIndex, endIndex));
+    };
+
+    // #################### End of Pagination
+
+    // Handle loading state
+    if (loading) return <><Loader /></>;
+
+    // Handle error state
+    if (error) {
+        return (
+            <>
+                <Header />
+                <div className="mx-auto max-w-7xl px-8">
+                    <p>Error fetching articles: {error}</p>
+                </div>
+                <Footer />
+            </>
+        );
+    }
+
     return (
         <>
             <Header />
             <div className="mx-auto max-w-[1200px] px-8">
                 <Search />
-                <BlogTabs />
+                <BlogTabs category={categories} />
 
                 <section className='mb-16'>
                     <div className="article_heading flex gap-[10.67px] items-center mb-4">
                         <h3>Articles</h3>
                     </div>
-                    <ArticleCard articles={articles2} />
+                    <ArticleCard articles={currentArticles} />
                 </section>
 
-                <Pagination />
+                <Pagination currentPage={currentPage} totalPages={totalPages}  onPageChange={handlePageChange} />
             </div>
             <Footer />
         </>
