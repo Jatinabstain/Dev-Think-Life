@@ -16,6 +16,45 @@ export default function ComingSoon() {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
+     const [modalTitle, setModalTitle] = useState<string>('Thank you for getting in touch');
+        const [modalMessage, setModalMessage] = useState<string>('We will notify you as soon as possible. Have a great day!');
+
+        const [errors, setErrors] = useState({
+                email: '',
+            });
+
+    const validateForm = () => {
+        let isValid = true;
+        const errorMessages = {
+            email: '',
+        };
+
+        const email = (document.getElementById('email') as HTMLInputElement).value;
+
+        if (!email) {
+            errorMessages.email = 'Email is required.';
+            isValid = false;
+        }
+
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!email || !email.match(emailPattern)) {
+            errorMessages.email = 'Enter a valid email.';
+            isValid = false;
+        }
+
+        setErrors(errorMessages);
+
+        if (isValid) {
+            setModalTitle('Thank you for getting in touch');
+            setModalMessage('We will notify you as soon as possible. Have a great day!');
+            openModal();
+            (document.getElementById('email') as HTMLInputElement).value = '';
+
+        }
+
+    }
+
+
     return (
         <>
             <Header />
@@ -28,9 +67,13 @@ export default function ComingSoon() {
                         <div className="launch">
                             <h3 className='mb-4'>Get notified when we launch</h3>
                             <div className="flex gap-4 justify-center items-center">
-                                <input type="text" className='form-input max-w-[308px] w-full' placeholder='Enter your email address' />
-                                <button onClick={openModal} className='primary_fill whitespace-nowrap' >Notify Me</button>
+                                <input type="text" className='form-input max-w-[308px] w-full' id="email" placeholder='Enter your email address' />
+                                <button  className='primary_fill whitespace-nowrap' onClick={(e) => {
+                            e.preventDefault();
+                            validateForm();
+                        }} >Notify Me</button>
                             </div>
+                            <div className="text-red-600 text-sm mt-2 text-center">   {errors.email ? errors.email : '\u00A0'}</div>
                         </div>
 
                         <div className="socail mt-9">
@@ -47,7 +90,7 @@ export default function ComingSoon() {
                 </div>
             </div>
             <Footer />
-            <MainModal isOpen={isModalOpen} onClose={closeModal} />
+            <MainModal title={modalTitle} message={modalMessage} isOpen={isModalOpen} onClose={closeModal} />
         </>
     );
 }

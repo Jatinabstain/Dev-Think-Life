@@ -19,13 +19,17 @@ export async function GET(request: Request) {
     const url = new URL(request.url);
 
     // Get the tag contains categoryOf from the query string
-    const fetchForCategory = url.searchParams.get("fetch_cat_art");
+    const fetchForCategory = url.searchParams.get("category");
+
+    // Get the search query from the query string
+    const SearchQuery = url.searchParams.get("SearchQuery");
 
     // New parameter to fetch categories
     const fetchCategories = url.searchParams.get("fetchCategories");
 
     // Get the no_of_record parameter from the query string
-    const no_of_record = url.searchParams.get("no_of_record");
+    const no_of_record_url = url.searchParams.get("no_of_record");
+    const no_of_record = no_of_record_url ? parseInt(no_of_record_url, 10) : null;
 
     const fetch_art = url.searchParams.get("fetch_art");
     try {
@@ -47,15 +51,37 @@ export async function GET(request: Request) {
                 }
             });
         }
+        // else if (no_of_record) {
+        //     response = '';
+        //     // Fetch 'no_of_record' pages from the Notion database
+        //     response = await notion.databases.query({
+        //         database_id: databaseId,
+        //         page_size: no_of_record // 2
+        //     });
+        //     // return response.results;
+        // }
+        else if (SearchQuery) {
+            response = '';
+            // Fetch 'SearchQuery' pages from the Notion database
+            response = await notion.databases.query({
+                database_id: databaseId,
+                filter: {
+                    property: 'Name',
+                    title: {
+                        contains: SearchQuery
+                    }
+                }
+            });
+        }
         else {
             // Fetch all pages from the Notion database
             response = await notion.databases.query({
                 database_id: databaseId,
             });
         }
-         
-       
-       
+
+
+
         // Handle fetching a specific article by ID : SingleArticle
         if (fetch_art) {
             const articles = response.results as PageObjectResponse[]; // Cast to PageObjectResponse array
@@ -210,9 +236,8 @@ export async function GET(request: Request) {
             });
 
         // If no_of_record is provided, slice the results
-        if (no_of_record == '3') {
-            const limit = parseInt(no_of_record, 10);
-            return new Response(JSON.stringify(articles.slice(0, limit)), { status: 200 });
+        if (no_of_record) {
+            return new Response(JSON.stringify(articles.slice(0, no_of_record)), { status: 200 });
         }
 
 
@@ -225,8 +250,8 @@ export async function GET(request: Request) {
 
 function formatString(fetchForCategory: string): string {
     return fetchForCategory
-    .split('-') // Split the string into words
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-    .join(' '); // Join the words with spaces
+        .split('-') // Split the string into words
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+        .join(' '); // Join the words with spaces
 }
 
