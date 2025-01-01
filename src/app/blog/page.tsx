@@ -12,32 +12,31 @@ import Slider from '../common/slider/page';
 import BlogTabs from '../common/components/blog/blogTabs';
 import { CategoryItem } from '@/types/categoryTypes';
 import { ArticleItem } from '@/types/articleCardTypes';
-import useNotionClient from '../common/components/NotionClient'; 
+import useNotionClient from '../common/components/NotionClient';
 import Loader from '../common/components/loader/loader';
+import Error from '../error500/page';
 
 export default function Blog() {
 
-     // Fetch popular articles
-    const { data: articleList, loading: isLoadingArticles, error: articleError  } = useNotionClient({ fetchFor: "Popular" });
-
-
+    // Fetch popular articles
+    const { data: articleList, loading: isLoadingArticles, error: articleError } = useNotionClient({ fetchFor: "Popular" });
 
     // Fetch paginated articles
-    const { data: paginatedArticles, loading: isLoadingPaginatedArticles, error: paginatedArticleError  } = useNotionClient({ fetchFor: "PaginatedArticles" });
+    const { data: paginatedArticles, loading: isLoadingPaginatedArticles, error: paginatedArticleError } = useNotionClient({ fetchFor: "PaginatedArticles" });
 
     // Fetch categories
-    const { data: categoriesData, loading: isLoadingCategories, error: categoryError  } = useNotionClient({ fetchFor: "Categories" });
+    const { data: categoriesData, loading: isLoadingCategories, error: categoryError } = useNotionClient({ fetchFor: "Categories" });
 
     // Combine loading and error states
     const isLoading = isLoadingArticles || isLoadingPaginatedArticles || isLoadingCategories;
-    
+
     const hasError = articleError || paginatedArticleError || categoryError;
 
     // Transform categoriesData to match CategoryItem structure
     const categories: CategoryItem[] = Array.isArray(categoriesData) ? categoriesData.map((category) => ({
-        id: parseInt(category.id, 10), 
-        name: category.name || "Unnamed Category", 
-        href: category.href 
+        id: parseInt(category.id, 10),
+        name: category.name || "Unnamed Category",
+        href: category.href
     })) : [];
 
     // Pagination
@@ -59,12 +58,24 @@ export default function Blog() {
     const handlePageChange = (newPage: number) => setCurrentPage(newPage);
 
     // Handle loading and error states
-    if (isLoading) return <Loader />;
-    if (hasError) return <div><p>Error fetching articles: {hasError}</p></div>;
+    if (isLoading) return <><Header /><Loader /><Footer /></>;
+    // if (hasError) return <div><p>Error fetching articles: {hasError}</p></div>;
+
+    if (hasError) {
+        console.log(hasError)
+        return (
+            <>
+                <Header />
+                <Error />
+                <Footer />
+            </>
+        );
+    }
 
     return (
         <>
             <Header />
+
             <div className="mx-auto max-w-[1200px] px-8">
                 <Search />
                 <BlogTabs category={categories} active_cat={null} />

@@ -2,9 +2,9 @@ import { Client } from "@notionhq/client";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"; // Import the correct types
 
 // Initialize Notion client
-// const notion = new Client({ auth: process.env.NOTION_API_KEY }); // Ensure you have your API key in environment variables
+const notion = new Client({ auth: process.env.NEXT_PUBLIC_NOTION_API_KEY }); // Ensure you have your API key in environment variables
 
-const notion = new Client({ auth: "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" });
+// const notion = new Client({ auth: "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" });
 
 // Function to format date from YYYY-MM-DD to DD MMM YYYY
 const formatDate = (dateString: string): string => {
@@ -34,12 +34,15 @@ export async function GET(request: Request) {
     const fetch_art = url.searchParams.get("fetch_art");
     try {
         // const databaseId = "YOUR_DATABASE_ID"; // Replace with your actual database ID
-        const databaseId = "15bb24f4-b447-807d-8e7c-e1f8aa6ce4e0";
-
+        const databaseId = process.env.NEXT_PUBLIC_NOTION_DATABASE_ID;
+        if (!databaseId) {
+            throw new Error("Database ID is not defined in environment variables");
+        }
 
         let response;
         // If ID is provided, fetch the specific article
         if (fetchForCategory) {
+            response = '';
             // Fetch all pages from the Notion database
             response = await notion.databases.query({
                 database_id: databaseId,
@@ -51,15 +54,21 @@ export async function GET(request: Request) {
                 }
             });
         }
-        // else if (no_of_record) {
-        //     response = '';
-        //     // Fetch 'no_of_record' pages from the Notion database
-        //     response = await notion.databases.query({
-        //         database_id: databaseId,
-        //         page_size: no_of_record // 2
-        //     });
-        //     // return response.results;
-        // }
+        else if (no_of_record) {
+            response = '';
+            // Fetch 'no_of_record' pages from the Notion database
+            response = await notion.databases.query({
+                database_id: databaseId,
+                page_size: no_of_record,
+                filter: {
+                    property: "Status",
+                    status: {
+                        equals: "Published"
+                    }
+                }
+            });
+        }
+
         else if (SearchQuery) {
             response = '';
             // Fetch 'SearchQuery' pages from the Notion database
@@ -74,6 +83,7 @@ export async function GET(request: Request) {
             });
         }
         else {
+            response = '';
             // Fetch all pages from the Notion database
             response = await notion.databases.query({
                 database_id: databaseId,
@@ -231,14 +241,15 @@ export async function GET(request: Request) {
                     category: category,
                     image_url: image_url,
                     article_url: article_url,
-                    page: pageObject,
+                    // page: pageObject,
+                    // no_of_record:no_of_record
                 };
             });
 
         // If no_of_record is provided, slice the results
-        if (no_of_record) {
-            return new Response(JSON.stringify(articles.slice(0, no_of_record)), { status: 200 });
-        }
+        // if (no_of_record) {
+        //     return new Response(JSON.stringify(articles.slice(0, no_of_record)), { status: 200 });
+        // }
 
 
         return new Response(JSON.stringify(articles), { status: 200 }); // Return articles as JSON response

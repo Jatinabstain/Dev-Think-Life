@@ -12,25 +12,27 @@ import { CategoryItem } from '@/types/categoryTypes';
 import { ArticleItem } from '@/types/articleCardTypes';
 import Loader from '../common/components/loader/loader';
 import { useSearchParams } from 'next/navigation';
+import NoResultsFound from '../common/components/noResultsFound/noResultsFound';
+import Error from '../error500/page';
 
 export default function Search() {
     return (
         <>
             <Header />
-                <div className="mx-auto max-w-[1200px] px-8">
+            <div className="mx-auto max-w-[1200px] px-8">
 
-                    <SearchInput />
+                <SearchInput />
 
-                    {/* Blog */}
-                    <Suspense fallback={<Loader />}>
-                        <BlogTabFunction />
-                    </Suspense>
+                {/* Blog */}
+                <Suspense fallback={<Loader />}>
+                    <BlogTabFunction />
+                </Suspense>
 
-                    {/* Articles */}
-                    <Suspense fallback={<Loader />}>
-                        <ArticleFunction />
-                    </Suspense>
-                </div>
+                {/* Articles */}
+                <Suspense fallback={<Loader />}>
+                    <ArticleFunction />
+                </Suspense>
+            </div>
             <Footer />
         </>
     );
@@ -43,29 +45,29 @@ function ArticleFunction() {
     const [categoryParam, setCategoryParam] = useState<string | null>(null);
     useEffect(() => {
         const categoryParam = searchParams.get('category');
-        setCategoryParam(categoryParam); 
+        setCategoryParam(categoryParam);
     }, [searchParams]);
-    
+
     const [queryParam, setQueryParam] = useState<string | null>(null);
     useEffect(() => {
         const queryParam = searchParams.get('s');
-        setQueryParam(queryParam); 
+        setQueryParam(queryParam);
     }, [searchParams]);
 
     let fetchFor = "";
     let toFetch = "";
-    if(categoryParam){
+    if (categoryParam) {
         fetchFor = "CategoryArticle";
         toFetch = categoryParam;
-    }else{
+    }
+    if (queryParam) {
         fetchFor = "SearchQuery";
-        toFetch = queryParam || '';
+        toFetch = queryParam;
     }
 
     //  to fetch CategoryArticle from Notion APi
     const { data: articlesByCategory, loading: loadingArticlesByCategory, error: errorArticlesByCategory } = useNotionClient({ fetchFor: fetchFor, toFetch: toFetch });
-
-  
+    console.log(toFetch, fetchFor)
 
     // Combine loading and error states
     const loading = loadingArticlesByCategory;
@@ -108,16 +110,24 @@ function ArticleFunction() {
     }
     return (
         <>
-            {/* <div>
-                <p>Article Function : {searchParams}</p>
-            </div> */}
-            <section className='mb-16'>
-                <div className="article_heading flex gap-[10.67px] items-center mb-4">
-                    <h3>Articles</h3>
-                </div>
-                <ArticleCard articles={currentArticles} />
-            </section>
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+            {currentArticles.length > 0 && currentArticles ? (
+                <>
+                    <section className='mb-16'>
+                        <div className="article_heading flex gap-[10.67px] items-center mb-4">
+                            <h3>Articles</h3>
+                        </div>
+                        <ArticleCard articles={currentArticles} />
+
+                    </section>
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={handlePageChange}
+                    />
+                </>
+            ) : (
+                <NoResultsFound />
+            )}
         </>
     );
 }
@@ -148,11 +158,11 @@ function BlogTabFunction() {
 
     // Handle loading and error states
     if (loading) return <><Loader /></>;
+
     if (error) {
+        console.log(error)
         return (
-            <div>
-                <p>Error fetching articles: {error}</p>
-            </div>
+            <Error />
         );
     }
     return (
@@ -161,6 +171,3 @@ function BlogTabFunction() {
         </>
     );
 }
-
-
-
