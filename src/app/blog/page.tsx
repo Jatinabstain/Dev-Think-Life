@@ -13,7 +13,7 @@ import BlogTabs from '../common/components/blog/blogTabs';
 import { CategoryItem } from '@/types/categoryTypes';
 import { ArticleItem } from '@/types/articleCardTypes';
 import useNotionClient from '../common/components/NotionClient';
-import Loader from '../common/components/loader/loader';
+// import Loader from '../common/components/loader/loader';
 import Error from '../error500/page';
 
 export default function Blog() {
@@ -41,16 +41,16 @@ export default function Blog() {
 
     // Pagination
     const [currentPage, setCurrentPage] = useState(1);
-    const articlesPerPage = 3;
-    const totalArticles = paginatedArticles.length;
-    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+    const articlesPerPage   =   3;
+    const totalArticles     =   paginatedArticles.length;
+    const totalPages        =   Math.ceil(totalArticles / articlesPerPage);
 
-    const [currentArticles, setCurrentArticles] = useState<ArticleItem[]>([]);
+    const [currentArticles, setCurrentArticles]     =   useState<ArticleItem[]>([]);
 
     useEffect(() => {
         if (paginatedArticles) {
-            const startIndex = (currentPage - 1) * articlesPerPage;
-            const endIndex = startIndex + articlesPerPage;
+            const startIndex    =   (currentPage - 1) * articlesPerPage;
+            const endIndex      =   startIndex + articlesPerPage;
             setCurrentArticles(paginatedArticles.slice(startIndex, endIndex));
         }
     }, [paginatedArticles, currentPage]);
@@ -58,8 +58,8 @@ export default function Blog() {
     const handlePageChange = (newPage: number) => setCurrentPage(newPage);
 
     // Handle loading and error states
-    if (isLoading) return <><Header /><Loader /><Footer /></>;
-
+    // if (isLoading) return <><Loader /></>;
+console.log('isLoading', isLoading)
     if (hasError) {
         console.log(hasError)
         return (

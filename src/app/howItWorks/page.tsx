@@ -18,11 +18,11 @@ export default function HowItWorks() {
     const { data: articleList, loading: isLoadingArticles, error: articleError } = useNotionClient({ fetchFor: "Popular" });
 
     // Combine loading and error states
-    const loading = isLoadingArticles;
-    const error = articleError;
+    const loading   =   isLoadingArticles;
+    const error     =   articleError;
 
     // Handle loading and error states
-    if (loading) return <><Header /><Loader /><Footer /></>;
+    // if (loading) return <><Loader /></>;
     if (error) {
         console.log(error)
         return (
@@ -114,7 +114,12 @@ export default function HowItWorks() {
                     <div className="heading mb-8">
                         <h3>Blog</h3>
                     </div>
-                    <ArticleCard articles={articleList} />
+                    {loading ? <Loader />
+                        :  <ArticleCard articles={articleList} />
+                    }
+
+                    
+                   
                 </section>
             </div>
             <Footer />
